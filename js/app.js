@@ -1,8 +1,8 @@
 "use strict";
-const add = (a, b) => {
-    return a + b;
+const add = (a, b = 30) => {
+    return a + b; //Si defino un valor por defecto tiene que ser el segundo parametro en adelante a su vez, puedo llamar a la funcion con un solo parametro
 };
-console.log(add(10, 16));
+console.log(add(10));
 const button = document.querySelector("button");
 if (button) {
     button.addEventListener("click", () => {
