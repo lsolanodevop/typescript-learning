@@ -1,7 +1,16 @@
-let num1: number = 150;
-let num2: number = 3200;
+const names = "Leo Solano" // El const permite definir variables que no van a cambiar, excelente para realizar inicializaciones de servidores y demas
+let num = 15 // El let permite un uso mejor de varibles es una mejor forma del var
 
-function mult(num1:number,num2:number){
-  return num1 * num2;
+console.log(names + " " + num);
+
+function add(a: number, b: number) {
+  var result = a + b; //La diferencia principal entre let y var es el scope, var tiende a ser mas global que let
+  return result;
 }
-console.log(mult(150,320));
+
+if (num > 10) {
+  // var isOld1 = true; // Esta se registra podria accesarla desde fuera
+  let isOld = true;  // Esta no
+}
+
+// console.log(isOld1); //Aunque me de un error JS lo permite funcionar
