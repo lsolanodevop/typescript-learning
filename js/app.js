@@ -9,4 +9,12 @@ if (button) {
         console.log("Hello i'm an arrow function");
     });
 }
+const hobbies = ["Videogames", "Watching stuff"];
+const activeHobbies = ["Studing"];
+activeHobbies.push(...hobbies); // los 3 puntos me permiten asignar un arreglo sin necesidad de especificar las posiciones
+const person = {
+    name: "Icaro",
+    hobbies: "Getting Sun"
+};
+const cat = Object.assign({}, person);
 //# sourceMappingURL=app.js.map
