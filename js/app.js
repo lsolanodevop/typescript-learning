@@ -9,12 +9,12 @@ if (button) {
         console.log("Hello i'm an arrow function");
     });
 }
-const hobbies = ["Videogames", "Watching stuff"];
+const hobbies = ["Videogames", "Watching stuff", "Petting my cats"];
 const activeHobbies = ["Studing"];
 activeHobbies.push(...hobbies); // los 3 puntos me permiten asignar un arreglo sin necesidad de especificar las posiciones
 const person = {
-    name: "Icaro",
-    hobbies: "Getting Sun"
+    firstName: "Icaro",
+    petHobbies: "Getting Sun"
 };
 const cat = Object.assign({}, person);
 const add = (...numbers) => {
@@ -24,4 +24,8 @@ const add = (...numbers) => {
 };
 const sumNumbers = add(1, 5, 2, 8, 20);
 console.log(sumNumbers);
+const [hobby1, hobby2, ...remainingHobbies] = hobbies; //esto realiza la primera asignacion a la primera variable, luego a la segunda y luego el remanente
+console.log(hobby1, hobby2, remainingHobbies);
+const { firstName: userName, petHobbies } = person;
+console.log(userName, petHobbies);
 //# sourceMappingURL=app.js.map

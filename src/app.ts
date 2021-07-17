@@ -12,15 +12,15 @@ if (button) {
   });
 }
 
-const hobbies = ["Videogames", "Watching stuff"];
+const hobbies = ["Videogames", "Watching stuff", "Petting my cats"];
 
 const activeHobbies = ["Studing"];
 
 activeHobbies.push(...hobbies); // los 3 puntos me permiten asignar un arreglo sin necesidad de especificar las posiciones
 
 const person = { // tambien funciona con objetos de forma que me permite asignar todo un objeto usando los ...
-  name: "Icaro",
-  hobbies: "Getting Sun"
+  firstName: "Icaro",
+  petHobbies: "Getting Sun"
 }
 
 const cat = { ...person };
@@ -32,3 +32,11 @@ const add = (...numbers:number[]) => { //Usando esta estructura hace que una fun
 }
 const sumNumbers = add(1, 5, 2, 8, 20);
 console.log(sumNumbers);
+
+const [hobby1, hobby2, ...remainingHobbies] = hobbies; //esto realiza la primera asignacion a la primera variable, luego a la segunda y luego el remanente
+
+console.log(hobby1, hobby2, remainingHobbies);
+
+const { firstName: userName, petHobbies } = person;
+
+console.log(userName, petHobbies);
