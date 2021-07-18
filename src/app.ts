@@ -1,42 +1,33 @@
-// const add = (a: number, b: number = 30) => { //Sintaxis para definir arrow functions, si solo ejecuta una linea puedo no usar las llaves
-//   return a + b; //Si defino un valor por defecto tiene que ser el segundo parametro en adelante a su vez, puedo llamar a la funcion con un solo parametro
-// };
+class Department{
+  _name: string;
+ private _employees: string[] = [];
 
-// console.log(add(10));
+  constructor(n: string,employees:string[]) {
+    this._name = n;
+    this._employees = employees;
+  }
 
-const button = document.querySelector("button")! as HTMLInputElement;
+  describe(this:Department){
+    console.log("Department: " + this._name);
+  }
 
-if (button) {
-  button.addEventListener("click", () => {
-    console.log("Hello i'm an arrow function");
-  });
+  addEmployees(employee:string) {
+    this._employees.push(employee);
+  }
+
+  printEmployeeInformation() {
+    console.log(this._employees.length);
+    console.log(this._employees);
+  }
 }
+const emp = ["Leonardo, Jose, Joseph"];
+const accounting = new Department("Human Resources",emp);
 
-const hobbies = ["Videogames", "Watching stuff", "Petting my cats"];
+accounting.describe();
 
-const activeHobbies = ["Studing"];
+console.log(accounting);
 
-activeHobbies.push(...hobbies); // los 3 puntos me permiten asignar un arreglo sin necesidad de especificar las posiciones
+accounting.printEmployeeInformation();
+// const accountingCopy = { _name: "IT", employees: ["Leonardo","Raul"], describe: accounting.describe };
 
-const person = { // tambien funciona con objetos de forma que me permite asignar todo un objeto usando los ...
-  firstName: "Icaro",
-  petHobbies: "Getting Sun"
-}
-
-const cat = { ...person };
-
-const add = (...numbers:number[]) => { //Usando esta estructura hace que una funcion pueda recibir multiples parametros sin tener que definirlos
-  return numbers.reduce((curResult, curValue) => {
-    return curResult + curValue;
-   }, 0);
-}
-const sumNumbers = add(1, 5, 2, 8, 20);
-console.log(sumNumbers);
-
-const [hobby1, hobby2, ...remainingHobbies] = hobbies; //esto realiza la primera asignacion a la primera variable, luego a la segunda y luego el remanente
-
-console.log(hobby1, hobby2, remainingHobbies);
-
-const { firstName: userName, petHobbies } = person;
-
-console.log(userName, petHobbies);
+// accountingCopy.describe();
