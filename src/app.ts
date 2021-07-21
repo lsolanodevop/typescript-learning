@@ -1,8 +1,10 @@
 class Department{
-  _name: string;
+  private readonly id: string;
+  private _name: string;
  private _employees: string[] = [];
 
-  constructor(n: string,employees:string[]) {
+  constructor(id:string,n: string,employees:string[]) {
+    this.id = id;
     this._name = n;
     this._employees = employees;
   }
@@ -21,7 +23,7 @@ class Department{
   }
 }
 const emp = ["Leonardo, Jose, Joseph"];
-const accounting = new Department("Human Resources",emp);
+const accounting = new Department("A1","Human Resources",emp);
 
 accounting.describe();
 
