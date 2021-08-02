@@ -31,4 +31,4 @@ class IITDepartment extends Department {
         this.admins = admins;
     }
 }
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=classes.js.map
