@@ -1,34 +1,44 @@
-function merge<T extends object, U extends object>(objA: T, objB: U) { //Function for merging generic objects
-  return Object.assign(objA, objB);
-}
+class ProjectInput{
+  templateElement: HTMLTemplateElement;
+  hostElement: HTMLDivElement;
+  element: HTMLFormElement;
+  titleInputElement: HTMLInputElement;
+  descriptionInputElement: HTMLInputElement;
+  peopleInputElement: HTMLInputElement;
+  constructor() {
+    this.templateElement = document.getElementById("project-input")! as HTMLTemplateElement;
+    this.hostElement = document.getElementById("app")! as HTMLDivElement;
+    
+    const importedHTML = document.importNode(this.templateElement.content, true);
+    this.element = importedHTML.firstElementChild as HTMLFormElement;
+    this.element.id = "user-input";
 
-const mergedObj = merge({ name: "Leo" }, { age: 26 });
+    this.titleInputElement = document.querySelector("#title")! as HTMLInputElement;
+    this.descriptionInputElement = document.querySelector("#description")! as HTMLInputElement;
+    this.peopleInputElement = document.querySelector("#people")! as HTMLInputElement;
 
-interface Lengthy{
-  length: number;
-}
-//Managing Connstraints
-function countAndDescribe<T extends Lengthy>(element: T): [T,string] {
-  let descriptionText = "Got no value";
-  if (element.length === 1) {
-    descriptionText = "Got 1 Element";
-  } else if (element.length > 1) {
-    descriptionText = "Got " + element.length + " Elements ";
-  }
-  return [element, descriptionText];
-}
 
-class DataStorage<T>{
-  private data: T[] = [];
-
-  addItem(item: T) {
-    this.data.push(item);
+    this.configure();
+    this.attach();
   }
 
-  removeItem(item: T) {
-    this.data.splice(this.data.indexOf(item), 1);
+  private submitHandler(event: Event) {
+    event.preventDefault();
+    // console.log("Clicked");
+    console.log(this.titleInputElement);
   }
-  getItems(){
-    return [...this.data];
-} 
-}
+
+  private configure() {
+    this.element.addEventListener("submit", this.submitHandler.bind(this));
+    // console.log("Configure");
+  }
+
+  private attach() {
+    this.hostElement.insertAdjacentElement("afterbegin",this.element);
+  }
+
+  }
+
+const projInput = new ProjectInput();
+
+
